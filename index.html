@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Women's Day</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:black;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+}
+
+.chat-box{
+width:330px;
+height:540px;
+background:linear-gradient(180deg,#5c0067,#2b0036);
+border-radius:35px;
+box-shadow:0 0 30px rgba(255,0,150,0.4);
+text-align:center;
+padding:20px;
+}
+
+/* GIF */
+
+#gif{
+width:100%;
+height:240px;
+border-radius:20px;
+margin-bottom:20px;
+object-fit:cover;
+}
+
+/* Message */
+
+.message{
+background:#ff2a7a;
+padding:12px;
+border-radius:20px;
+color:white;
+font-size:16px;
+display:inline-block;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* Button */
+
+.next-btn{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#ff2a7a;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+.next-btn:hover{
+background:#ff4d94;
+}
+
+/* Final Video */
+
+#finalVideo{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+}
+
+#finalVideo video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+
+<audio autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Main Page -->
+
+<div class="chat-box" id="mainPage">
+
+<img id="gif" src="gif.webp">
+
+<div id="msg" class="message">
+Happy Women's Day 🌻
+</div>
+
+<br>
+
+<button class="next-btn" onclick="next()">Next</button>
+
+</div>
+
+<!-- Final Video -->
+
+<div id="finalVideo">
+<video autoplay controls>
+<source src="C:\Users\Dell\OneDrive\Desktop\Women\video.mp4" type="video/mp4">
+</video>
+</div>
+
+<script>
+
+const messages = [
+
+"Happy Women's Day 🌻",
+"You are strong, beautiful and inspiring 💖",
+"You make the world brighter and happier 🌸",
+"Wishing you love, smiles and success always 💐",
+"Respect and love to all amazing women 👑"
+
+];
+
+let i = 0;
+
+function next(){
+
+i++;
+
+if(i < messages.length){
+
+document.getElementById("msg").innerHTML = messages[i];
+
+}else{
+
+document.getElementById("mainPage").style.display="none";
+document.getElementById("finalVideo").style.display="block";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
